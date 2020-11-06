@@ -12,9 +12,9 @@ public class Delivery {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     private String deliveryStatus="Delivered";
-    private Long orderId= Long.valueOf(10);
-    private Long eventId;
-    private String eventStatus;
+    private Long orderId= Long.valueOf(100);
+    private Long eventId= Long.valueOf(100);
+    private String eventStatus="Preparing";
 
     @PostPersist
     public void onPostPersist(){
