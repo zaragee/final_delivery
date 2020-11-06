@@ -22,11 +22,15 @@ public class Delivery {
         BeanUtils.copyProperties(this, delivered);
         delivered.publishAfterCommit();
 
-
         GiftAdded giftAdded = new GiftAdded();
         BeanUtils.copyProperties(this, giftAdded);
         giftAdded.publishAfterCommit();
 
+        try {
+            Thread.sleep((long) (400 + Math.random() * 300));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
     }
 
