@@ -26,14 +26,12 @@ public class Delivery {
         BeanUtils.copyProperties(this, giftAdded);
         giftAdded.publishAfterCommit();
 
-//        hystix test
-        try {
-            Thread.sleep((long) (400 + Math.random() * 300));
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-
+////        hystix test
+//        try {
+//            Thread.sleep((long) (400 + Math.random() * 300));
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @PostUpdate
