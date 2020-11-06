@@ -12,9 +12,9 @@ public class Delivery {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     private String deliveryStatus="Delivered";
-    private Long orderId= Long.valueOf(100);
-    private Long eventId= Long.valueOf(100);
-    private String eventStatus="Preparing";
+    private Long orderId= Long.valueOf(10);
+    private Long eventId;
+    private String eventStatus;
 
     @PostPersist
     public void onPostPersist(){
@@ -22,16 +22,12 @@ public class Delivery {
         BeanUtils.copyProperties(this, delivered);
         delivered.publishAfterCommit();
 
+
         GiftAdded giftAdded = new GiftAdded();
         BeanUtils.copyProperties(this, giftAdded);
         giftAdded.publishAfterCommit();
 
-////        hystix test
-//        try {
-//            Thread.sleep((long) (400 + Math.random() * 300));
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+
     }
 
     @PostUpdate
